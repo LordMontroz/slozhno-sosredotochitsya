@@ -4,10 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Выбрал тему по умолчанию тёмную -->
+    <meta name="color-scheme" content="dark light" />
+    <!-- Подключение шрифтов -->
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <!-- Добавляем стили -->
+    <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/dark.css" />
+    <link rel="stylesheet" href="./styles/light.css" />
+    <!-- Фавиконки -->
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="images/mobile-icon.png" />
+    <!-- Название и описание страницы -->
     <title>Сложно сосредоточиться</title>
+    <meta
+      name="description"
+      content="Почему нам сложно сосредоточиться и что с этим делать."
+    />
   </head>
   <body class="page">
+    <!-- Header -->
     <header class="header decorated-zone">
+      <!-- В уголке надпись REC -->
+      <span class="decorative-element" aria-hidden="true"></span>
+      <!-- Меню тем -->
       <nav class="header__theme-menu">
         <ul class="header__theme-menu-list">
           <li class="header__theme-menu-item">
@@ -34,7 +57,15 @@
           </li>
         </ul>
       </nav>
+      <!-- Главный заголовок и описание сайта -->
+      <h1 class="primary-heading">No focus</h1>
+      <p class="header__description title-decor">
+        Что делать, когда не можешь делать ничего
+        <br />Или почему нам так сложно сконцентрироваться, особенно когда очень
+        надо
+      </p>
     </header>
+    <!-- Контент -->
     <script src="./scripts/script.js"></script>
   </body>
 </html>

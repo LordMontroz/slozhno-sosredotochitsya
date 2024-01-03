@@ -1,5 +1,191 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  /* Фон */
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+/* 
+  Уголки в header (Декоративная зона)
+*/
+
+.decorated-zone {
+  display: grid; /* Для позиционирования дочерних элементов */
+  align-content: space-evenly;
+  position: relative; /* Для позиционирования декоративных элементов */
+  height: 100vh;
+}
+
+/* Контейнер декоративного элемента REC */
+.decorative-element {
+  /* Позиционируется относительно шапки */
+  position: absolute;
+  inset-block-start: var(--content-padding);
+  inset-inline-end: var(--content-padding);
+}
+
+/* Декоративный элемент REC */
+.decorative-element::before {
+  /* Текст */
+  content: 'REC';
+  font-size: var(--text-font-size);
+  color: var(--accent-color);
+  /* Отступ для изображения */
+  padding-inline-end: 27px;
+  /* Изображение */
+  background-image: url('../images/ellipse.svg');
+  background-repeat: no-repeat;
+  background-size: 22px;
+  background-position-x: 94%;
+  background-position-y: 50%;
+}
+
+/* Декоративные уголки (общие стили) */
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  display: block;
+  inline-size: 25px;
+  block-size: 25px;
+  color: var(--button-color); /* Декоративный элемент принимает цвет кнопки */
+}
+
+/* Декоративный уголок start */
+.decorated-zone::before {
+  position: absolute;
+  inset-block-start: var(--content-padding);
+  inset-inline-end: var(--content-padding);
+  border-inline-end: solid 1px currentColor;
+  border-block-start: solid 1px currentColor;
+}
+
+/* Декоративный уголок end  */
+.decorated-zone::after {
+  position: absolute;
+  inset-block-end: var(--content-padding);
+  inset-inline-start: var(--content-padding);
+  border-inline-start: solid 1px currentColor;
+  border-block-end: solid 1px currentColor;
+}
+
+/* 
+  Типографика
+*/
+
+/* Главный заголовок */
+.primary-heading {
+  color: var(--primary-heading-color);
+  font-size: var(--primary-heading-font-size);
+  text-transform: lowercase;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 82.5%; /* 95.7px */
+}
+
+/* Главный заголовок в header */
+.header .primary-heading {
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+
+/* Дополнительный заголовок */
+.title-decor {
+  color: var(--title-color);
+  background-color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* Заголовок секции */
+.section_heading {
+  color: var(--section-heading-color);
+}
+
+/* Ссылка внутри текста при наведении */
+.internal_text_link:hover {
+  border-block-end-color: currentColor;
+}
+
+/* Ссылка внутри текста при неявной фокусировке */
+.internal_text_link:focus {
+  outline: none;
+}
+
+/* Ссылка внутри текста при явной фокусировке */
+.internal_text_link:focus-visible {
+  border-color: currentColor;
+}
+
+
+/* 
+  – Секция – Header
+*/
+
+.header {
+  padding: var(--content-padding);
+}
+
+/* 
+  – Секция – Header – Меню переключения темы 
+*/
+
+.header__theme-menu {
+  justify-self: end; /* В мобильной версии по умолчанию */
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Стили кнопок в header */
+/* Системные стили кнопок обнулены в global.css */
+.header__theme-menu-button {
+  color: var(--button-color);
+  text-transform: lowercase;
+  padding: 1px 13px;
+  border: solid 1px transparent; /* Чтобы не дергалась верстка при появлении border */
+}
+
+/* Конпка при наведении */
+.header__theme-menu-button:hover {
+  /* border меняет прозрачность на 40% от исходного цвета.
+      Для реализации этого смешиваем исходный цвет с прозрачным (transparent).
+        Работаем в режиме srgb для поддержки большинства экранов.
+  */
+  border-color: color-mix(in srgb, currentColor 40%, transparent);
+  cursor: pointer;
+}
+
+/* Активная кнопка */
+.header__theme-menu-button_active {
+  border: solid 1px currentColor;
+  pointer-events: none;
+}
+
+/* Кнопка при фокусировании */
+.header__theme-menu-button:focus {
+  outline: none; /* Сбрасываем стандартную обводку, дизайнер предложил кастомную для явной фокусировки */
+}
+
+/* Кнопка в режиме явной фокусировки */
+.header__theme-menu-button:focus-visible {
+  /* Кастомная обводка в виде нижнего подчеркивания */
+  border: solid 1px transparent; /* Чтобы не дергалась верстка при появлении border */
+  border-block-end-color: currentColor; /* Проявляем нижнее подчеркивание */
+}
+
+/* 
+  – Секция – Header – Описание
+*/
+
+.header__description {
+  align-self: start;
+  justify-self: stretch;
 }

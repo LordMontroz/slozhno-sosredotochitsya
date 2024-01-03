@@ -10,6 +10,10 @@ body {
   min-inline-size: 375px;
   max-inline-size: 1440px;
   margin: 0 auto;
+  /* Шрифт везде одинаковый */
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-font-size); /* Размер шрифта */
+  line-height: var(--text-line-height); /* Высота строки */
 }
 
 h1,
@@ -20,6 +24,7 @@ h5,
 h6,
 p {
   margin: 0;
+  font-size: var(--text-font-size); /* Размер шрифта */
 }
 
 ul {
@@ -33,10 +38,18 @@ picture {
   padding: 0;
 }
 
+/* Обнуление для кнопок */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 button,
 a {
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  text-decoration: none;
 }
