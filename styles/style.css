@@ -10,6 +10,11 @@
   background-attachment: fixed;
 }
 
+/* Основной контент */
+.content {
+  padding-block: var(--content-padding-block);
+  padding-inline: var(--content-padding);
+}
 
 /* 
   Уголки в header (Декоративная зона)
@@ -188,4 +193,117 @@
 .header__description {
   align-self: start;
   justify-self: stretch;
+}
+
+/* 
+  – Секция – Статьи
+*/
+
+/* Общие стили для всех секций со статьями */
+.section_articles {
+  display: grid;
+  padding-block-end: 50px;
+  gap: 20px;
+}
+
+/* Отступы между статьями */
+.article-item:not(:last-child) {
+  margin-block-end: 20px;
+}
+
+/* Если в секции используется дополнительный заголовок */
+h4.title-decor {
+  font-weight: normal;
+}
+
+/* Отступ между секциями статей */
+.section_articles {
+  padding-block-end: 80px;
+}
+
+/* Лейаут каждой нечетной секции */
+.section_articles:nth-of-type(odd) {
+  grid-template-columns: 1fr 2fr;
+  gap: 0 20px;
+}
+
+/* Заголовок каждой нечетной секции */
+.section_articles:nth-of-type(odd) .section_heading {
+  /* Растягивается с первой до последней строки */
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+/* Дополнительный заголовок в нечетной секции */
+.section_articles:nth-of-type(odd) .section_heading + .title-decor {
+  margin-bottom: 20px;
+}
+
+/* Заголовок каждой четной секции */
+.section_articles:nth-of-type(even) .section_heading {
+  max-inline-size: 30%;
+}
+
+/* Планшет */
+
+@media (768px <= width < 1024px) {
+  /* 
+    Header 
+  */
+
+  .header__description {
+    justify-self: end;
+    max-inline-size: 364px;
+  }
+}
+
+/* Десктоп */
+
+@media (1024px <= width) {
+  .decorated-zone {
+    align-content: normal;
+  }
+
+  /* 
+    Header
+  */
+
+  /* Меню изменяет положение */
+  .header__theme-menu {
+    justify-self: center;
+    /* Компенсирует отступ, который убрали для позиционирования главного заголовка,
+    Чтобы не использовать отрицательные значения */
+    padding-inline-start: 20px;
+  }
+
+  /* Элементы меню */
+  .header__theme-menu-list {
+    /* Выстраиваются в ряд */
+    flex-direction: row;
+  }
+
+  /* Описание */
+  .header__description {
+    justify-self: end;
+    max-inline-size: 491px;
+  }
+
+  .header .primary-heading {
+    margin-block-start: 16%;
+  }
+
+  /* 
+    Статьи
+  */
+
+  /* Лейаут каждой нечетной секции */
+  .section_articles:nth-of-type(odd) {
+    gap: 0 10px;
+  }
+
+  .section_articles:nth-of-type(even) .article_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
 }
