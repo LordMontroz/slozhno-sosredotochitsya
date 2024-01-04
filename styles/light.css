@@ -18,8 +18,7 @@
 
 /* Декоративный элемент REC */
 .page.theme_light .decorative-element::before {
-  color: transparent;
-  background-image: none;
+  display: none;
 }
 
 @media (prefers-color-scheme: light) {
@@ -33,5 +32,10 @@
     --section-heading-color: #353430;
     --title-color: #353430;
     --text-color: #353430;
+  }
+
+  /* Декоративный элемент REC */
+  .page.theme_auto .decorative-element::before {
+    display: none;
   }
 }
