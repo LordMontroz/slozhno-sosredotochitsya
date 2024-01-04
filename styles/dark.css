@@ -15,3 +15,8 @@
   --title-color: #000028;
   --text-color: #f1b2ce;
 }
+
+  /* Декоративный элемент REC */
+  .page.theme_auto .decorative-element::before {
+    display: block;
+  }

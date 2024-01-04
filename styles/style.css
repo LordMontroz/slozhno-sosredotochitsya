@@ -87,6 +87,7 @@
 /* Главный заголовок в header */
 .header .primary-heading {
   text-shadow: 4px 4px 0 var(--accent-color);
+  padding-top: 20px;
 }
 
 /* Главный заголовок в footer */
@@ -339,6 +340,10 @@ h4.title-decor {
   /* 
     Header 
   */
+
+  .primary-heading {
+    padding-top: 14px;
+  }
 
   .header__description {
     justify-self: end;
