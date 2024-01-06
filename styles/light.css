@@ -35,7 +35,7 @@
   }
 
   /* Декоративный элемент REC */
-  .page.theme_auto .decorative-element::before {
+  .decorative-element::before {
     display: none;
   }
 }

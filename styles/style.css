@@ -34,6 +34,7 @@
 
 .decorative-element::before {
   /* Текст */
+  display: block;
   content: "REC";
   font-size: var(--text-font-size);
   color: var(--accent-color);
@@ -87,7 +88,6 @@
 /* Главный заголовок в header */
 .header .primary-heading {
   text-shadow: 4px 4px 0 var(--accent-color);
-  padding-top: 20px;
 }
 
 /* Главный заголовок в footer */
@@ -139,11 +139,19 @@
 */
 
 .header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
   padding: var(--content-padding);
 }
 
 .header__theme-menu {
   justify-self: end; /* В мобильной версии по умолчанию */
+  align-self: center;
+}
+
+.header__description {
+  align-self: center;
+  justify-self: stretch;
 }
 
 .header__theme-menu-list {
@@ -187,15 +195,6 @@
   /* Кастомная обводка в виде нижнего подчеркивания */
   border: solid 1px transparent; /* Чтобы не дергалась верстка при появлении border */
   border-block-end-color: currentColor; /* Проявляем нижнее подчеркивание */
-}
-
-/* 
-  – Секция – Header – Описание
-*/
-
-.header__description {
-  align-self: start;
-  justify-self: stretch;
 }
 
 /* 
@@ -340,13 +339,18 @@ h4.title-decor {
   /* 
     Header 
   */
+  .header {
+    display: grid;
+    grid-template-rows: 1fr min-content 1fr;
+  }
 
-  .primary-heading {
-    padding-top: 14px;
+  .header__theme-menu {
+    align-self: center;
   }
 
   .header__description {
     justify-self: end;
+    align-self: center;
     max-inline-size: 364px;
   }
 }
@@ -354,6 +358,20 @@ h4.title-decor {
 /* Десктоп */
 
 @media (1024px <= width) {
+  .header {
+    display: grid;
+    grid-template-rows: 1fr min-content 1fr;
+  }
+
+  .header__theme-menu {
+    align-self: start;
+  }
+
+  .header__description {
+    justify-self: end;
+    align-self: center;
+  }
+
   .decorated-zone {
     align-content: normal;
   }
@@ -380,10 +398,6 @@ h4.title-decor {
   .header__description {
     justify-self: end;
     max-inline-size: 491px;
-  }
-
-  .header .primary-heading {
-    margin-block-start: 16%;
   }
 
   /* 

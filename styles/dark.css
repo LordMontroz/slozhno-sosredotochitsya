@@ -16,7 +16,7 @@
   --text-color: #f1b2ce;
 }
 
-  /* Декоративный элемент REC */
-  .page.theme_auto .decorative-element::before {
-    display: block;
-  }
+/* Декоративный элемент REC */
+.page.theme_dark .decorative-element::before {
+  display: block;
+}
